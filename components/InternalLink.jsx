@@ -1,12 +1,12 @@
 import { useRouter } from "expo-router"
-import { TouchableOpacity, Text } from "react-native"
+import { TouchableOpacity } from "react-native"
 
-export const InternalLink = ({ title, path }) => {
+export const InternalLink = ({ children, path }) => {
   const router = useRouter()
 
   return (
     <TouchableOpacity onPress={() => router.push(path)}>
-      <Text>{title}</Text>
+      {children}
     </TouchableOpacity>
   )
 }
