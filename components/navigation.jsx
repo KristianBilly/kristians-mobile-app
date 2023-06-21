@@ -23,7 +23,7 @@ export const Navigation = () => {
         data={navigationData}
         renderItem={componentToBeMappedOver}
         keyExtractor={(item) => item.path}
-        horizontal={true}
+        numColumns={3}
       />
     </StyledView>
   )

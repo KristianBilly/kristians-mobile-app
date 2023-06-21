@@ -1,11 +1,10 @@
 import { SafeAreaWrapper } from "../components/SafeAreaWrapper"
-import { InternalLink } from "../components/InternalLink"
 import { Button, Alert } from "react-native"
 import { StyledView } from "../components/styles/StyledView"
 import { useState } from "react"
 import { StyledText } from "../components/styles/StyledText"
 import { colors } from "../constants/colors"
-import { Navigation } from "../components/navigation"
+import { Navigation } from "../components/Navigation"
 
 const YoloScreen = () => {
   const [show, setShow] = useState(true)

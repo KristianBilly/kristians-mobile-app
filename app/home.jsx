@@ -6,7 +6,7 @@ import { ExternalLink } from "../components/ExternalLink"
 import { externalSites } from "../constants/externalSites"
 import { StyledImage } from "../components/styles/StyledImage"
 import { StyledText } from "../components/styles/StyledText"
-import { Navigation } from "../components/navigation"
+import { Navigation } from "../components/Navigation"
 
 const Home = () => {
   return (
