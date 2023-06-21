@@ -1,15 +1,14 @@
 import { useRouter } from "expo-router"
 import { SafeAreaWrapper } from "../components/SafeAreaWrapper"
-import { TouchableOpacity, Text } from "react-native"
+import { InternalLink } from "../components/InternalLink"
 
 const YoloScreen = () => {
-  const router = useRouter()
-
   return (
     <SafeAreaWrapper>
-      <TouchableOpacity onPress={() => router.push("/")}>
-        <Text>Go to Home Screen</Text>
-      </TouchableOpacity>
+      <InternalLink
+        title="Go To Home Page"
+        path="/"
+      />
     </SafeAreaWrapper>
   )
 }

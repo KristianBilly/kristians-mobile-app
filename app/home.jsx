@@ -1,18 +1,15 @@
-import { View, Text, TouchableOpacity } from "react-native"
+import { View } from "react-native"
 import { SafeAreaWrapper } from "../components/SafeAreaWrapper"
-import { useRouter } from "expo-router"
+import { InternalLink } from "../components/InternalLink"
 
 const Home = () => {
-  const router = useRouter()
-
   return (
     <SafeAreaWrapper>
       <View>
-        <Text>Kristian first line</Text>
-        <Text>Kristian second line</Text>
-        <TouchableOpacity onPress={() => router.push("/secondscreen")}>
-          <Text>Link to second screen</Text>
-        </TouchableOpacity>
+        <InternalLink
+          title="Go To Second Screen"
+          path="/secondscreen"
+        />
       </View>
     </SafeAreaWrapper>
   )
