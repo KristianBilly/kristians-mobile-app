@@ -11,13 +11,11 @@ export const StyledImage = ({ source, size }) => {
 
 const styles = StyleSheet.create({
   logoSmall: {
-    width: 100,
-    height: 100,
-    padding: 10,
+    width: 50,
+    height: 50,
   },
   logoLarge: {
-    width: 200,
-    height: 200,
-    padding: 10,
+    width: 100,
+    height: 100,
   },
 })

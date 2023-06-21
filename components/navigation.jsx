@@ -1,7 +1,7 @@
 import { navigationData } from "../constants/navigationData"
 import { StyledView } from "./styles/StyledView"
 import { FlatList, Text, StyleSheet, View, StatusBar } from "react-native"
-import { StyledLink } from "./ExternalLink"
+import { StyledLink } from "./styles/StyledLink"
 
 export const Navigation = () => {
   const componentToBeMappedOver = ({ item }) => (
