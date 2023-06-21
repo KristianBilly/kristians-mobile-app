@@ -1,14 +1,3 @@
-# Expo Router Example
+Questions:
 
-Use [`expo-router`](https://expo.github.io/router) to build native navigation using files in the `app/` directory.
-
-## 🚀 How to use
-
-```sh
-npx create-expo-app -e with-router
-```
-
-## 📝 Notes
-
-- [Expo Router: Docs](https://expo.github.io/router)
-- [Expo Router: Repo](https://github.com/expo/router)
+1. I merged pull-1 my self, since repo was empty without it. ALternatively I could have checked out a feature-branch from pull-1 and made a PR with feature branch towards pull-1. And then written to reviewer that I did it?
