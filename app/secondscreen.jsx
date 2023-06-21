@@ -1,4 +1,3 @@
-import { useRouter } from "expo-router"
 import { SafeAreaWrapper } from "../components/SafeAreaWrapper"
 import { InternalLink } from "../components/InternalLink"
 
