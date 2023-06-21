@@ -2,7 +2,7 @@ import { StyleSheet, Image } from "react-native"
 import { SafeAreaWrapper } from "../components/SafeAreaWrapper"
 import { images } from "../assets/images/images"
 import { StyledView } from "../components/styles/StyledView"
-import { ExternalLink } from "../components/ExternalLink"
+import { StyledLink } from "../components/styles/StyledLink"
 import { externalSites } from "../constants/externalSites"
 import { StyledImage } from "../components/styles/StyledImage"
 import { StyledText } from "../components/styles/StyledText"
@@ -21,9 +21,9 @@ const Home = () => {
       </StyledView>
       <StyledView>
         <StyledText>Go to Google</StyledText>
-        <ExternalLink url={externalSites.google}>
-          <StyledImage source={images.blueArrow} />
-        </ExternalLink>
+        <StyledLink path={externalSites.google}>
+          <StyledImage source={images.googleLogo} />
+        </StyledLink>
       </StyledView>
     </SafeAreaWrapper>
   )

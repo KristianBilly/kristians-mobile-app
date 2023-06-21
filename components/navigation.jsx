@@ -1,19 +1,14 @@
-import { InternalLink } from "./InternalLink"
+import { navigationData } from "../constants/navigationData"
 import { StyledView } from "./styles/StyledView"
 import { FlatList, Text, StyleSheet, View, StatusBar } from "react-native"
-
-const navigationData = [
-  { path: "/", text: "Home Page" },
-  { path: "/secondscreen", text: "Second Screen" },
-  { path: "/thirdscreen", text: "Third Screen" },
-]
+import { StyledLink } from "./styles/StyledLink"
 
 export const Navigation = () => {
   const componentToBeMappedOver = ({ item }) => (
     <View style={styles.container}>
-      <InternalLink path={item.path}>
+      <StyledLink path={item.path}>
         <Text>{item.text}</Text>
-      </InternalLink>
+      </StyledLink>
     </View>
   )
 
