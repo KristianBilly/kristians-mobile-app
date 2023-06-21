@@ -1,8 +1,19 @@
 import { Linking, TouchableOpacity } from "react-native"
+import { useRouter } from "expo-router"
 
-export const ExternalLink = ({ children, url }) => {
+export const StyledLink = ({ path, children }) => {
+  const router = useRouter()
+
+  if (path.includes("http")) {
+    return (
+      <TouchableOpacity onPress={() => Linking.openURL(path)}>
+        {children}
+      </TouchableOpacity>
+    )
+  }
+
   return (
-    <TouchableOpacity onPress={() => Linking.openURL(url)}>
+    <TouchableOpacity onPress={() => router.push(path)}>
       {children}
     </TouchableOpacity>
   )
