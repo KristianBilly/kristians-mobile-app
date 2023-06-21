@@ -1,21 +1,17 @@
 import { StyleSheet, Image } from "react-native"
 import { SafeAreaWrapper } from "../components/SafeAreaWrapper"
-import { InternalLink } from "../components/InternalLink"
 import { images } from "../assets/images/images"
 import { StyledView } from "../components/styles/StyledView"
 import { ExternalLink } from "../components/ExternalLink"
 import { externalSites } from "../constants/externalSites"
 import { StyledImage } from "../components/styles/StyledImage"
 import { StyledText } from "../components/styles/StyledText"
+import { Navigation } from "../components/navigation"
 
 const Home = () => {
   return (
     <SafeAreaWrapper>
-      <StyledView>
-        <InternalLink path="/secondscreen">
-          <StyledText>Go to Second Screen</StyledText>
-        </InternalLink>
-      </StyledView>
+      <Navigation />
       <StyledView>
         <StyledText>Nothing happens when you click me</StyledText>
         <StyledImage

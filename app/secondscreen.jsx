@@ -5,6 +5,7 @@ import { StyledView } from "../components/styles/StyledView"
 import { useState } from "react"
 import { StyledText } from "../components/styles/StyledText"
 import { colors } from "../constants/colors"
+import { Navigation } from "../components/navigation"
 
 const YoloScreen = () => {
   const [show, setShow] = useState(true)
@@ -25,11 +26,7 @@ const YoloScreen = () => {
 
   return (
     <SafeAreaWrapper>
-      <StyledView>
-        <InternalLink path="/">
-          <StyledText>Go To Home Page</StyledText>
-        </InternalLink>
-      </StyledView>
+      <Navigation />
       <StyledView>
         <Button
           onPress={() => showAlert()}
