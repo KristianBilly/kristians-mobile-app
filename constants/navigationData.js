@@ -14,4 +14,7 @@ export const navigationData = [
   { path: "/authentication", text: "Authentication" },
   { path: "/registeruser", text: "Register User" },
   { path: "/userlist", text: "User List" },
+  { path: "/sqlitedeleteitem", text: "Delete Item" },
+  { path: "/gatedcontent", text: "Gated Content" },
+  { path: "/search", text: "Search" },
 ]

@@ -8,22 +8,15 @@ import {
 } from "react-native"
 import * as SQLite from "expo-sqlite"
 import { useRouter } from "expo-router"
+import { useMessageRenderer } from "../hooks/useMessageRenderer"
 
 const db = SQLite.openDatabase("authentication.db")
 
 const RegisterUser = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [status, setStatus] = useState("")
+  const [status, showMessage] = useMessageRenderer()
   const router = useRouter()
-
-  const showMessage = (message) => {
-    setStatus(message)
-    const timer = setTimeout(() => {
-      setStatus("")
-    }, 1000)
-    return () => clearTimeout(timer)
-  }
 
   const registerUser = () => {
     db.transaction((tx) => {
@@ -68,7 +61,6 @@ const RegisterUser = () => {
           <Text style={styles.buttonText}>Login Screen</Text>
         </TouchableOpacity>
       </View>
-
       {status ? <Text style={styles.message}>{status}</Text> : null}
     </View>
   )

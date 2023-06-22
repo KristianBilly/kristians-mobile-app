@@ -9,31 +9,25 @@ import {
 import * as SQLite from "expo-sqlite"
 import GatedContent from "./gatedcontent"
 import { useRouter } from "expo-router"
+import { useMessageRenderer } from "../hooks/useMessageRenderer"
+import { useAuthContext } from "../context/AuthContext"
+
 const db = SQLite.openDatabase("authentication.db")
 
 export default function App() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [authenticated, setAuthenticated] = useState(false)
-  const [status, setStatus] = useState("")
+  const [status, showMessage] = useMessageRenderer()
+  const { logIn, isLoggedIn } = useAuthContext()
   const router = useRouter()
 
   useEffect(() => {
-    // Create user table
     db.transaction((tx) => {
       tx.executeSql(
         "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL, password TEXT NOT NULL);"
       )
     })
   }, [])
-
-  const showMessage = (message) => {
-    setStatus(message)
-    const timer = setTimeout(() => {
-      setStatus("")
-    }, 1000)
-    return () => clearTimeout(timer)
-  }
 
   const loginUser = () => {
     db.transaction((tx) => {
@@ -42,8 +36,7 @@ export default function App() {
         [username, password],
         (_, { rows }) => {
           if (rows.length > 0) {
-            console.log("User logged in successfully.")
-            setAuthenticated(true)
+            logIn()
           } else {
             showMessage("Invalid username or password.")
           }
@@ -52,51 +45,43 @@ export default function App() {
     })
   }
 
-  const handleLogout = () => {
-    setAuthenticated(false)
-  }
+  if (isLoggedIn) return <GatedContent />
 
-  const renderContent = () => {
-    if (authenticated) {
-      return <GatedContent handleLogout={handleLogout} />
-    } else {
-      return (
-        <View>
-          <TextInput
-            style={styles.input}
-            placeholder="Username"
-            value={username}
-            onChangeText={(text) => setUsername(text)}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            secureTextEntry
-            value={password}
-            onChangeText={(text) => setPassword(text)}
-          />
-          <TouchableOpacity
-            style={styles.button}
-            onPress={loginUser}>
-            <Text style={styles.buttonText}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => router.push("/registeruser")}>
-            <Text style={styles.buttonText}>Register</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => router.push("/userlist")}>
-            <Text style={styles.buttonText}>Registered Users</Text>
-          </TouchableOpacity>
-          {status ? <Text style={styles.message}>{status}</Text> : null}
-        </View>
-      )
-    }
-  }
-
-  return <View style={styles.container}>{renderContent()}</View>
+  return (
+    <View style={styles.container}>
+      <View>
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
+          value={username}
+          onChangeText={(text) => setUsername(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+        />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={loginUser}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push("/registeruser")}>
+          <Text style={styles.buttonText}>Register</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push("/userlist")}>
+          <Text style={styles.buttonText}>Registered Users</Text>
+        </TouchableOpacity>
+        {status ? <Text style={styles.message}>{status}</Text> : null}
+      </View>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
