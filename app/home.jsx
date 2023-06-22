@@ -6,7 +6,6 @@ import { externalSites } from "../constants/externalSites"
 import { StyledImage } from "../components/styles/StyledImage"
 import { StyledText } from "../components/styles/StyledText"
 import { Navigation } from "../components/Navigation"
-import { ScrollView } from "react-native"
 
 const Home = () => {
   return (

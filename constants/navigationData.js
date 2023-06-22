@@ -9,4 +9,9 @@ export const navigationData = [
   { path: "/modal", text: "Modal" },
   { path: "/keyboardavoidingview", text: "Keyboard Avoiding View" },
   { path: "/imagebackground", text: "Image Background" },
+  { path: "/filesystem", text: "Filesystem" },
+  { path: "/sqlite", text: "SQLite" },
+  { path: "/authentication", text: "Authentication" },
+  { path: "/registeruser", text: "Register User" },
+  { path: "/userlist", text: "User List" },
 ]
