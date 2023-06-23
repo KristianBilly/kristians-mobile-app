@@ -20,10 +20,6 @@ export const Search = () => {
     setCompanies(filterCompanies(searchField, allCompanies))
   }, [searchField])
 
-  // useEffect(() => {
-  //   setCompanies(allCompanies)
-  // }, [searchField])
-
   if (!isCompaniesFound && !isSearchFieldEmpty) return <SearchNoResults />
 
   if (isCompaniesFound)

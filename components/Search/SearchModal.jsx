@@ -19,11 +19,9 @@ const SearchModal = () => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View>
-              {allCompanies.map((company) => {
-                return (
-                  <Text key={company.companyName}>{company.companyName}</Text>
-                )
-              })}
+              {allCompanies.map((company) => (
+                <Text key={company.companyName}>{company.companyName}</Text>
+              ))}
             </View>
             <Pressable
               style={standardStyles.button}

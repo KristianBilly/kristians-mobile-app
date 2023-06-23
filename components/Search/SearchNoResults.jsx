@@ -22,10 +22,6 @@ export const SearchNoResults = () => {
   )
 }
 
-// Lav modal
-// Beneath are the companies in the database
-// Knap til at gå til /search
-
 const styles = StyleSheet.create({
   SearchNoResults: {},
   messageTitleH3: {},
