@@ -1,13 +1,9 @@
 import * as Localization from "expo-localization"
-import i18n from "i18n-js"
+import { I18n } from "i18n-js"
+import { translations } from "./translations/translations"
 
-// Define your supported languages here
-i18n.translations = {
-  en: { greeting: "Hello" },
-  de: { greeting: "Hallo" },
-}
-
-// Set the default language
+const i18n = new I18n(translations)
 i18n.locale = Localization.locale
+i18n.enableFallback = true
 
-export default i18n
+export const t = (translationKey) => i18n.t(translationKey)
